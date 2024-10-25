@@ -7,11 +7,14 @@ import two from '/public/two.avif'
 import three from '/public/three.avif'
 import four from '/public/four.avif'
 import five from '/public/five.avif'
+import { useNavigate } from 'react-router';
 
 const Hero = () => {
     const images = [one, two, three, four, five];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [nextImageIndex, setNextImageIndex] = useState(1);
+
+    const nav = useNavigate()
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -25,7 +28,7 @@ const Hero = () => {
     return (
         <div className='bg-black m-0'>
 
-            <div className="hero min-h-[70vh] md:min-h-[100vh] relative overflow-hidden">
+            <div className="hero min-h-[70vh] md:min-h-[80vh] relative overflow-hidden">
                 {images.map((img, index) => (
                     <div
                     key={index}
@@ -39,15 +42,15 @@ const Hero = () => {
                 <div className="hero-overlay bg-black/50 absolute inset-0"></div>
                 <div className="hero-content text-neutral-content text-center relative z-10">
                     <div className="flex flex-col items-center justify-center">
-                        <h1 className="hero_title w-full">Community Services Block Grant
-                        </h1>
-                        <p className="mb-5 text-white lg:max-w-[70%]">
-                        ​The Community Services Block Grant (CSBG) is funded under the U.S. Department of Health and Human Services, Administration for Children and Fam​​ilies. CSBG is designed to provide a range of services to assist low-income families and individuals attain the skills, knowledge, and motivation necessary to achieve self-sufficiency. 
+                    <h1 className="hero_title w-full tracking-tight">
+    Community Services Block Grant
+</h1>
+
+                        <p className="mb-5 text-white lg:max-w-[500px]">
+                        ​The Community Services Block Grant (CSBG) is funded under the U.S. Department of Health and Human Services, Administration for Children and Fam​​ilies. 
                         </p>
                         <div className='flex gap-5 items-center w-full justify-center'>
-                            <a href="https://www.instagram.com/abeentonandsonsnigltd?igsh=Mjlib2w5ZnIwd29z">
-                            <button className="px-6 py-3 rounded-md bg-[#F58721] hover:bg-[#F58728] text-sm flex gap-3 justify-center items-center text-white">Get Started <img width="18" height="18" src="https://img.icons8.com/ios-filled/20/FFFFFF/chevron-right.png" alt="chevron-right"/></button>
-                            </a>
+                            <button onClick={()=> nav('/get-started')} className="px-6 py-3 rounded-md bg-[#F58721] hover:bg-[#F58728] text-sm flex gap-3 justify-center items-center text-white">Get Started <img width="18" height="18" src="https://img.icons8.com/ios-filled/20/FFFFFF/chevron-right.png" alt="chevron-right"/></button>
                         </div>
                     </div>
                 </div>

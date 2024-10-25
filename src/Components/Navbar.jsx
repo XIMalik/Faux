@@ -14,26 +14,26 @@ const Navbar = () => {
   return (
     <div>
       {/* Navbar for larger screens */}
-      <div className="bg-[#304363] top-0 w-full h-[45px] flex justify-between items-center px-10">
+      <div className="bg-[#0C2043] top-0 w-full h-[45px] flex justify-between items-center px-10 border-b-[0.2px] border-black/10">
         <div className="logo-holder flex gap-6 items-center">
-          <div className="w-[30px] h-[30px] rounded-lg bg-white"></div>
+          {/* <div className="w-[30px] h-[30px] rounded-lg bg-white"></div>
           <lord-icon
             src="https://cdn.lordicon.com/wmwqvixz.json"
             trigger="hover"
             colors="primary:#ffffff"
             style={{ width: '25px', height: '25px' }}>
-          </lord-icon>
+          </lord-icon> */}
 
         </div>
         <div className="hold flex items-center gap-10">
 
-          <div className="f-nav flex gap-5 text-white font-semibold text-sm">
+          <div className="f-nav flex gap-5 text-white font-light text-xs">
             <span>Careers</span>
             <span>About WSD</span>
             <span>Contact</span>
           </div>
 
-          <div className="lang-sel flex items-center gap-1  text-white font-semibold text-sm">
+          <div className="lang-sel flex items-center gap-1  text-white font-light text-xs">
             <script src="https://cdn.lordicon.com/lordicon.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/xcrjfuzb.json"
@@ -45,16 +45,15 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="navbar hidden md:flex justify-between bg-none rounded-full absolute px-10 py-2">
-        <a className="text-sm flex items-center gap-2 header_title">
-          <img src={logo} alt="Abeenton logo" className='h-[55px]' />
+      <div className="navbar hidden md:flex justify-between bg-none text-black bg-white px-10 py-2 border-b-[0.2px] border-black/10">
+        <a className="text-sm flex items-center gap-2 header_title bg-black">
+          {/* <img src={logo} alt="Abeenton logo" className='h-[55px]' /> */}
           {/* <h1 className='header-title'>Abeenton</h1> */}
         </a>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1 text-white">
+          <ul className="menu menu-horizontal px-1 text-black">
             <li><a href='#about-us'>About</a></li>
             <li><a href='#services'>Services</a></li>
-            <li><a href='#the-team'>The Team</a></li>
             <li><a href='#contact-us'>Contact Us</a></li>
           </ul>
         </div>
@@ -64,8 +63,8 @@ const Navbar = () => {
       <div className="navbar flex md:hidden bg-none">
         <div className="flex-1">
           <a className="text-sm flex items-center gap-2 header_title">
-            <img src={logo_mob} alt="Abeenton logo" className='h-[40px]' />
-            <h1 className='header-title'>Abeenton</h1>
+            {/* <img src={logo_mob} alt="Abeenton logo" className='h-[40px]' />
+            <h1 className='header-title'>Abeenton</h1> */}
           </a>
         </div>
         <div className="flex-none">
@@ -87,9 +86,6 @@ const Navbar = () => {
           </li>
           <li className="w-full text-center py-2">
             <a href='#services' onClick={toggleMenu}>Services</a>
-          </li>
-          <li className="w-full text-center py-2">
-            <a href='#the-team' onClick={toggleMenu}>The Team</a>
           </li>
           <li className="w-full text-center py-2">
             <a href='#contact-us' onClick={toggleMenu}>Contact Us</a>

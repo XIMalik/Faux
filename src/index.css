@@ -9,8 +9,19 @@
   background-color: white;
 }
 
+/* * {
+  outline: 1px solid red;
+}
+ */
+
+body{
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+
 }
 
 .montserrat-body {
@@ -447,4 +458,41 @@ form button:hover {
   form {
     width: 100%; /* Make the form responsive for smaller screens */
   }
+}
+
+.f-select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Use flex-start instead of start for better compatibility */
+  font-size: 15px;
+}
+
+.f-select li {
+  width: 100%; /* Ensures li takes full width */
+  cursor: pointer;
+}
+
+.f-select li a {
+  display: block; /* This allows the <a> to fill the width of the <li> */
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none; /* Optional: remove underline from links */
+}
+
+.f-select li a.selected {
+  background: #000;
+}
+
+.f-select li a:hover {
+  background: #f8f8f8;
+}
+
+.f-select li a.active {
+  background: #007BFF; /* Change to a blue color for active state */
+  color: #fff; /* Change text color for visibility */
+}
+
+.blue{
+  background: #1C2451;
 }

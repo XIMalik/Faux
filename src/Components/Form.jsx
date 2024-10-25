@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,8 @@ function Form() {
     valid_id: null, // for file uploads
     additional_message: '',
   });
+
+  const nav = useNavigate()
 
   const [status, setStatus] = useState({ submitting: false, success: false, error: '' });
 
@@ -54,14 +57,47 @@ function Form() {
     }
   };
 
-  if (status.success) {
-    return <p>Thanks for joining!</p>;
+  if (status.success)
+     {
+    return (
+      <div className="section-paragraph-light text-center">
+
+        <h1>You have successfully registered for the grant!</h1>
+        <p>Please be on standby and be expectant of an email in the coming days. Instructions will be relayed concerning steps of continuation.</p>
+        <button className='underline mt-10' onClick={()=> nav('/')}>Go home</button>
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-2 shadow-xl'>
       <label htmlFor="full_name">Full Name</label>
       <input id="full_name" type="text" name="full_name" className="form-input" onChange={handleChange} />
+
+      <div className="flex gap-2">
+
+        <div className="flex w-[50%] flex-col items-start">
+
+
+          <label htmlFor="gender">Gender</label>
+          <input id="gender" type="text" name="gender" className="form-input" onChange={handleChange} />
+
+        </div>
+
+        <div className="flex w-[50%] flex-col items-start">
+
+
+          <label htmlFor="age">Age</label>
+          <input id="age" type="number" name="age" className="form-input" onChange={handleChange} />
+
+        </div>
+      </div>
+
+      <label htmlFor="phone_number">Phone Number</label>
+      <input id="phone_number" type="tel" name="phone_number" className="form-input" onChange={handleChange} />
+
+      <label htmlFor="email">Email</label>
+      <input id="email" type="email" name="email" className="form-input" onChange={handleChange} />
 
       <label htmlFor="address">Home address</label>
       <input id="address" type="text" name="address" className="form-input" onChange={handleChange} />
@@ -71,18 +107,21 @@ function Form() {
         <div className="flex w-[50%] flex-col items-start">
 
 
-          <label htmlFor="state">State</label>
-          <input id="state" type="text" name="state" className="form-input" onChange={handleChange} />
-        </div>
-
-        <div className="flex w-[50%] flex-col items-start">
-
-
           <label htmlFor="city">City</label>
           <input id="city" type="text" name="city" className="form-input" onChange={handleChange} />
 
         </div>
+        <div className="flex w-[50%] flex-col items-start">
+
+
+          <label htmlFor="state">State</label>
+          <input id="state" type="text" name="state" className="form-input" onChange={handleChange} />
+        </div>
+
       </div>
+
+      <label htmlFor="marital_status">Marital Status</label>
+      <input id="marital_status" type="text" name="marital_status" className="form-input" onChange={handleChange} />
 
 
       <div className="flex gap-2">
@@ -90,34 +129,18 @@ function Form() {
         <div className="flex w-[50%] flex-col items-start">
 
 
-          <label htmlFor="gender">Gender</label>
-      <input id="gender" type="text" name="gender" className="form-input" onChange={handleChange} />
+          <label htmlFor="monthly_income">Monthly Income</label>
+          <input id="monthly_income" type="number" name="monthly_income" className="form-input" onChange={handleChange} />
 
         </div>
 
         <div className="flex w-[50%] flex-col items-start">
 
 
-        <label htmlFor="age">Age</label>
-        <input id="age" type="number" name="age" className="form-input" onChange={handleChange} />
-
+          <label htmlFor="i_have_a_car">I have a car (True/False)</label>
+          <input id="i_have_a_car" type="text" name="i_have_a_car" className="form-input" onChange={handleChange} />
         </div>
       </div>
-
-      <label htmlFor="marital_status">Marital Status</label>
-      <input id="marital_status" type="text" name="marital_status" className="form-input" onChange={handleChange} />
-
-      <label htmlFor="phone_number">Phone Number</label>
-      <input id="phone_number" type="tel" name="phone_number" className="form-input" onChange={handleChange} />
-
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" name="email" className="form-input" onChange={handleChange} />
-
-      <label htmlFor="monthly_income">Monthly Income</label>
-      <input id="monthly_income" type="number" name="monthly_income" className="form-input" onChange={handleChange} />
-
-      <label htmlFor="i_have_a_car">Do you have a car? (True/False)</label>
-      <input id="i_have_a_car" type="text" name="i_have_a_car" className="form-input" onChange={handleChange} />
 
       <label htmlFor="occupation">Occupation</label>
       <input id="occupation" type="text" name="occupation" className="form-input" onChange={handleChange} />
@@ -131,14 +154,14 @@ function Form() {
       <label htmlFor="valid_id">Valid ID (Drivers License, ID Card)</label>
       <input id="valid_id" type="file" name="valid_id" className="form-input rounded-full" onChange={handleFileChange} />
 
-      <label htmlFor="additional_message">Additional Message</label>
-      <textarea id="additional_message" name="additional_message" className="form-textbox" onChange={handleChange} />
+      {/* <label htmlFor="additional_message">Additional Message</label>
+      <textarea id="additional_message" name="additional_message" className="form-textbox" onChange={handleChange} /> */}
 
       <button type="submit" disabled={status.submitting}>
         Submit
       </button>
 
-      {status.error && <p className="error">{status.error}</p>}
+      {/* {status.error && <p className="error">{status.error}</p>} */}
     </form>
   );
 }
