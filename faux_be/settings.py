@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure--@$a0qd@w=k!05o728_oc0^chgxgn4ku6jcjt)3_5g@4+f1cwc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['faux.onrender.com']
+ALLOWED_HOSTS = ['faux.onrender.com', 'faux-test.onrender.com']
 
 
 # Application definition
@@ -92,6 +92,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://faux.onrender.com",
+    "https://faux-test.onrender.com"
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
