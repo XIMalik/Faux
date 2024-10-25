@@ -2,9 +2,14 @@ import React, { useState, useEffect } from 'react';
 import solar from '/public/solar.jpg'
 import wired from '/public/wired.jpg'
 import boosters from '/public/boosters.jpg'
+import one from '/public/one.jpg'
+import two from '/public/two.avif'
+import three from '/public/three.avif'
+import four from '/public/four.avif'
+import five from '/public/five.avif'
 
 const Hero = () => {
-    const images = [solar, wired, boosters];
+    const images = [one, two, three, four, five];
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [nextImageIndex, setNextImageIndex] = useState(1);
 
@@ -19,23 +24,25 @@ const Hero = () => {
 
     return (
         <div className='bg-black m-0'>
+
             <div className="hero min-h-[70vh] md:min-h-[100vh] relative overflow-hidden">
                 {images.map((img, index) => (
                     <div
-                        key={index}
-                        className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
-                        style={{
-                            backgroundImage: `url(${img})`,
-                            opacity: index === currentImageIndex ? 1 : 0,
-                        }}
+                    key={index}
+                    className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+                    style={{
+                        backgroundImage: `url(${img})`,
+                        opacity: index === currentImageIndex ? 1 : 0,
+                    }}
                     />
                 ))}
                 <div className="hero-overlay bg-black/50 absolute inset-0"></div>
                 <div className="hero-content text-neutral-content text-center relative z-10">
                     <div className="flex flex-col items-center justify-center">
-                        <h1 className="hero_title w-full">Anchored in Excellence</h1>
-                        <p className="mb-5 text-white">
-                            We uphold the highest standards of excellence in our range  <br /> of services, ensuring seamless, <br />safe, and efficient energy solutions.
+                        <h1 className="hero_title w-full">Community Services Block Grant
+                        </h1>
+                        <p className="mb-5 text-white lg:max-w-[70%]">
+                        ​The Community Services Block Grant (CSBG) is funded under the U.S. Department of Health and Human Services, Administration for Children and Fam​​ilies. CSBG is designed to provide a range of services to assist low-income families and individuals attain the skills, knowledge, and motivation necessary to achieve self-sufficiency. 
                         </p>
                         <div className='flex gap-5 items-center w-full justify-center'>
                             <a href="https://www.instagram.com/abeentonandsonsnigltd?igsh=Mjlib2w5ZnIwd29z">

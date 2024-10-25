@@ -5,12 +5,16 @@ import WWSF from './WWSF'
 import TheTeam from './TheTeam'
 import ContactUs from './ContactUs'
 import TrustedBy from './TrustedBy'
+import Form from './Form'
 
 const MidSection = () => {
   return (
     <div className="w-[100%] flex flex-col ">
       <div id='about-us' className="">
         <Split />
+      </div>
+      <div className=" flex items-center justify-center py-10">
+      <Form/>
       </div>
       <div id='services'>
         <Services />

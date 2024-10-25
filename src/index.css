@@ -395,3 +395,56 @@ button {
     top: 64px; /* Adjust based on navbar height */
   }
 }
+
+
+/* Form styles */
+form {
+  background-color: #f8f8f8; /* Gray background for the form */
+  padding: 20px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between form elements */
+  border-radius: 8px; /* Rounded corners for the form */
+  box-sizing: border-box;
+}
+
+/* Label styles */
+form label {
+  text-align: left; /* Align labels to the left */
+  color: gray; /* Optional: Make the labels stand out against the gray background */
+}
+
+/* Input and textarea styles */
+.form-input,
+.form-textbox {
+  background-color: white; /* White background for inputs */
+  color: black; /* Black text */
+  border: 1px solid #ccc;
+  border-radius: 6px; /* Rounded corners */
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't affect input width */
+}
+
+/* Button styles */
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%; /* Full width of the form */
+  border-radius: 6px; /* Rounded corners for the button */
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Form responsive */
+@media (max-width: 500px) {
+  form {
+    width: 100%; /* Make the form responsive for smaller screens */
+  }
+}

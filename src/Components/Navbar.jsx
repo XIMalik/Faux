@@ -14,11 +14,42 @@ const Navbar = () => {
   return (
     <div>
       {/* Navbar for larger screens */}
+      <div className="bg-[#304363] top-0 w-full h-[45px] flex justify-between items-center px-10">
+        <div className="logo-holder flex gap-6 items-center">
+          <div className="w-[30px] h-[30px] rounded-lg bg-white"></div>
+          <lord-icon
+            src="https://cdn.lordicon.com/wmwqvixz.json"
+            trigger="hover"
+            colors="primary:#ffffff"
+            style={{ width: '25px', height: '25px' }}>
+          </lord-icon>
+
+        </div>
+        <div className="hold flex items-center gap-10">
+
+          <div className="f-nav flex gap-5 text-white font-semibold text-sm">
+            <span>Careers</span>
+            <span>About WSD</span>
+            <span>Contact</span>
+          </div>
+
+          <div className="lang-sel flex items-center gap-1  text-white font-semibold text-sm">
+            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/xcrjfuzb.json"
+              trigger="hover"
+              colors="primary:#ffffff"
+              style={{ width: '18px', height: '18px' }}>
+            </lord-icon>
+            <span>Language</span>
+          </div>
+        </div>
+      </div>
       <div className="navbar hidden md:flex justify-between bg-none rounded-full absolute px-10 py-2">
-          <a className="text-sm flex items-center gap-2 header_title">
-            <img src={logo} alt="Abeenton logo" className='h-[55px]' />
-            {/* <h1 className='header-title'>Abeenton</h1> */}
-          </a>
+        <a className="text-sm flex items-center gap-2 header_title">
+          <img src={logo} alt="Abeenton logo" className='h-[55px]' />
+          {/* <h1 className='header-title'>Abeenton</h1> */}
+        </a>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 text-white">
             <li><a href='#about-us'>About</a></li>
@@ -66,6 +97,7 @@ const Navbar = () => {
         </ul>
       </div>
     </div>
+
   );
 };
 

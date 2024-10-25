@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-      {/* <Home/> */}
-      <ComingSoon/>
+      <Home/>
+      {/* <ComingSoon/> */}
     </>
   )
 }
