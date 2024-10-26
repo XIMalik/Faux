@@ -11,7 +11,7 @@ class Info(models.Model):
     marital_status = models.CharField(max_length=10, null=False, blank=False, editable=False)
     phone_number = models.CharField(max_length=15, null=False, blank=False, editable=False)
     email = models.EmailField(max_length=100, null=False, blank=False, editable=False)
-    monthly_income = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False, editable=False)
+    monthly_income = models.CharField(max_length=100, null=False, blank=False, editable=False)
     i_have_a_car = models.BooleanField(default=False, editable=False)
     occupation = models.CharField(max_length=100, null=False, blank=False, editable=False)
     rent_or_own = models.CharField(max_length=20, null=False, blank=False, editable=False)

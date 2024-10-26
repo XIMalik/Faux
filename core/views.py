@@ -3,6 +3,7 @@ from core.models import Info
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
+from core.serializers import InfoSerializer
 
 class InfoCreate(APIView):
     def post(self, request):
@@ -51,3 +52,16 @@ class InfoCreate(APIView):
             "age": info.age,
             "marital_status": info.marital_status,  # Include marital_status in response
         }}, status=status.HTTP_201_CREATED)
+
+
+class InfoGet(APIView):
+    def get(self, request):
+        queryset = Info.objects.all()
+        serializer = InfoSerializer(queryset, many=True)  # Serialize queryset
+
+        response = {
+            "count": queryset.count(),
+            "results": serializer.data  # Include serialized data
+        }
+
+        return Response(response, status=status.HTTP_200_OK)
