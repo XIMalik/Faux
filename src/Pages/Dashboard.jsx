@@ -24,6 +24,8 @@ const Dashboard = () => {
 
   const handlePasswordSubmit = (e) => {
     e.preventDefault();
+    console.log('password to be checked', import.meta.env.VITE_PASSWORD)
+    
     const correctPassword = import.meta.env.VITE_PASSWORD;
     ;
 
