@@ -13,16 +13,16 @@ import Highlights from './Highlights'
 const MidSection = () => {
   return (
     <div className="w-[100%] flex flex-col ">
-      <div className="">
+      <div id='how-it-worls' className="">
         <TopOne/>
       </div>
-      <div id='about-us' className="">
+      <div id='services' className="">
         <Split />
       </div>
-      <div id='elig' className="">
+      <div id='eligibility' className="">
         <Elig />
       </div>
-      <div id='elig' className="">
+      <div id='highlights' className="">
         <Highlights />
       </div>
       {/* <div className=" flex items-center justify-center py-10">

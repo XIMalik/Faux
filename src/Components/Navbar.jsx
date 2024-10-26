@@ -54,9 +54,10 @@ const Navbar = () => {
         </a>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 text-black">
-            <li><a href='#about-us'>About</a></li>
-            <li><a href='#services'>Services</a></li>
-            <li><a href='#contact-us'>Contact Us</a></li>
+            <li><a href='#how-it-works'>How it works</a></li>
+            <li><a href='#services'>Our Services</a></li>
+            <li><a href='#eligibility'>Eligibility</a></li>
+            <li><a href='#highlights'>Highlights</a></li>
           </ul>
         </div>
       </div>
@@ -81,16 +82,19 @@ const Navbar = () => {
       </div>
 
       {/* Smooth Dropdown Menu */}
-      <div className={`dropdown-menu md:hidden ${isMenuOpen ? 'open' : ''}`}>
+      <div className={`dropdown-menu mt-10 md:hidden ${isMenuOpen ? 'open' : ''}`}>
         <ul className="nav flex flex-col p-2 w-full">
           <li className="w-full text-center py-2 border-none">
-            <a href='#about-us' onClick={toggleMenu}>About</a>
+            <a href='#how-it-works' onClick={toggleMenu}>How it works</a>
           </li>
           <li className="w-full text-center py-2">
-            <a href='#services' onClick={toggleMenu}>Services</a>
+            <a href='#services' onClick={toggleMenu}>Our Services</a>
           </li>
           <li className="w-full text-center py-2">
-            <a href='#contact-us' onClick={toggleMenu}>Contact Us</a>
+            <a href='#eligibility' onClick={toggleMenu}>Eligibility</a>
+          </li>
+          <li className="w-full text-center py-2">
+            <a href='#highlights' onClick={toggleMenu}>CSBG Highlights</a>
           </li>
         </ul>
       </div>

@@ -77,7 +77,7 @@ function Form() {
         type="text"
         name="full_name"
         className="form-input"
-        placeholder="Grace Jennings"
+        placeholder="John Doe"
         onChange={handleChange}
       />
 
@@ -88,18 +88,19 @@ function Form() {
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
+            <option value="female">Other</option>
           </select>
         </div>
 
         <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="age">Age</label>
+          <label htmlFor="dob">Date of birth</label>
           <input
-            id="age"
-            type="number"
-            name="age"
-            placeholder="21"
+            id="dob"
+            type="date"
+            name="dob"
             className="form-input"
             onChange={handleChange}
+            max={new Date().toISOString().split('T')[0]} // Optional: prevents future dates
           />
         </div>
       </div>
@@ -168,24 +169,24 @@ function Form() {
       </div>
 
       <label htmlFor="marital_status">Marital Status</label>
-      <input
-        id="marital_status"
-        type="text"
-        name="marital_status"
-        placeholder="Single"
-        className="form-input"
-        onChange={handleChange}
-      />
+      <select id="city" name="city" className="form-input" onChange={handleChange}>
+        <option value="">Select</option>
+        <option value="Seattle">Single</option>
+        <option value="Spokane">Married</option>
+        <option value="Tacoma">Divorced</option>
+        <option value="Vancouver">Prefer not to say</option>
+        {/* Add more cities as needed */}
+      </select>
 
       <div className="flex gap-2">
         <div className="flex w-[50%] flex-col items-start">
           <label htmlFor="monthly_income">Monthly Income</label>
           <select id="monthly_income" name="monthly_income" className="form-input" onChange={handleChange}>
             <option value="">Select Income Range</option>
-            <option value="5000-10000">5000.00 - 10000.00</option>
-            <option value="10000-50000">10000.00 - 50000.00</option>
-            <option value="50000-100000">50000.00 - 100000.00</option>
-            <option value="100000-500000">100000.00 - 500000.00</option>
+            <option value="5000-10000">$5000.00 - $10000.00</option>
+            <option value="10000-50000">$10000.00 - $50000.00</option>
+            <option value="50000-100000">$50000.00 - $100000.00</option>
+            <option value="100000-500000">$100000.00 - $500000.00</option>
           </select>
         </div>
 
