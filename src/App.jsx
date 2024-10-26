@@ -3,6 +3,7 @@ import Home from './Pages/Home';
 // import ComingSoon from './Pages/ComingSoon';
 import Form from './Components/Form';
 import GetStarted from './Pages/GetStarted';
+import Dashboard from './Pages/Dashboard';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         {/* <Route path="/coming-soon" element={<ComingSoon />} /> */}
 
         <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/data" element={<Dashboard />} />
       </Routes>
     </Router>
   );

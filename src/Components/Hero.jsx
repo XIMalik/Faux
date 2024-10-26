@@ -50,7 +50,7 @@ const Hero = () => {
                         ​The Community Services Block Grant (CSBG) is funded under the U.S. Department of Health and Human Services, Administration for Children and Fam​​ilies. 
                         </p>
                         <div className='flex gap-5 items-center w-full justify-center'>
-                            <button onClick={()=> nav('/get-started')} className="px-6 py-3 rounded-md bg-[#F58721] hover:bg-[#F58728] text-sm flex gap-3 justify-center items-center text-white">Get Started <img width="18" height="18" src="https://img.icons8.com/ios-filled/20/FFFFFF/chevron-right.png" alt="chevron-right"/></button>
+                            <button onClick={()=> nav('/get-started')} className="px-6 py-3 rounded-md bg-[#F58721] hover:bg-[#F58728] text-sm flex gap-3 justify-center items-center text-white">Get Started <img width="15" height="15" src="https://img.icons8.com/ios-filled/20/FFFFFF/chevron-right.png" alt="chevron-right"/></button>
                         </div>
                     </div>
                 </div>

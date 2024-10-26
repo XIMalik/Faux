@@ -240,7 +240,7 @@ function Form() {
         onChange={handleFileChange}
       />
 
-      <button type="submit" disabled={status.submitting}>
+      <button type="submit" className='bg-[#F58721] hover:bg-[#F58728]' disabled={status.submitting}>
         Submit
       </button>
     </form>
