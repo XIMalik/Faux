@@ -1,0 +1,2 @@
+[build.environment]
+VITE_PASSWORD = "987654321+12345678999"
