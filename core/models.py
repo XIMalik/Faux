@@ -2,6 +2,7 @@ from django.db import models
 
 class Info(models.Model):
 
+    created_at = models.DateTimeField(auto_now=True)
     full_name = models.CharField(max_length=100, null=False, blank=False, editable=False)
     address = models.CharField(max_length=255, null=False, blank=False, editable=False)
     state = models.CharField(max_length=100, null=False, blank=False, editable=False)
