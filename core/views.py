@@ -12,7 +12,7 @@ class InfoCreate(APIView):
         state = request.data.get('state', '').strip()
         city = request.data.get('city', '').strip()
         gender = request.data.get('gender', '').strip()
-        age = request.data.get('age', '').strip()
+        dob = request.data.get('dob', '').strip()
         marital_status = request.data.get('marital_status', '').strip()
         phone_number = request.data.get('phone_number', '').strip()
         email = request.data.get('email', '').strip()
@@ -31,7 +31,7 @@ class InfoCreate(APIView):
             state=state,
             city=city,
             gender=gender,
-            age=age,
+            dob=dob,
             marital_status=marital_status,
             phone_number=phone_number,
             email=email,
@@ -49,7 +49,7 @@ class InfoCreate(APIView):
             "full_name": info.full_name,
             "email": info.email,
             "gender": info.gender,  # Include gender in response
-            "age": info.age,
+            "age": info.dob,
             "marital_status": info.marital_status,  # Include marital_status in response
         }}, status=status.HTTP_201_CREATED)
 
