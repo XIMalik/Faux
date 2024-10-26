@@ -31,6 +31,7 @@ const Dashboard = () => {
       setShowTable(true);
     } else {
       alert("Incorrect password");
+      console.log(password)
     }
   };
 
