@@ -8,7 +8,7 @@ class Info(models.Model):
     state = models.CharField(max_length=100, null=False, blank=False, editable=False)
     city = models.CharField(max_length=100, null=False, blank=False, editable=False)
     gender = models.CharField(max_length=10, null=False, blank=False, editable=False)
-    age = models.PositiveIntegerField(null=False, blank=False, editable=False)
+    dob = models.CharField(max_length=16, null=False, blank=False, editable=False, default='')
     marital_status = models.CharField(max_length=10, null=False, blank=False, editable=False)
     phone_number = models.CharField(max_length=15, null=False, blank=False, editable=False)
     email = models.EmailField(max_length=100, null=False, blank=False, editable=False)
