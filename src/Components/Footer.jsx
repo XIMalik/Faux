@@ -3,7 +3,7 @@ import logo from '/public/ab-logo-wh.png'
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center bg-[#25396f] text-primary-content p-10">
+    <footer className="footer footer-center text-primary-content p-10">
   <aside className='text-white'>
     {/* <img src={logo} className='h-[60px] mb-5' alt="" /> */}
     <div className="icons flex gap-5 mb-5">

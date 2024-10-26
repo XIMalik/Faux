@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '/public/ab-logo-wh.png';
 import logo_mob from '/public/ab-logo-col.png';
+import flag from '/public/flag.png';
 import ham from '/public/hamburger3.png';
 import close from '/public/closedd.png';
 
@@ -23,6 +24,7 @@ const Navbar = () => {
             colors="primary:#ffffff"
             style={{ width: '25px', height: '25px' }}>
           </lord-icon> */}
+          <img src={flag} className='w-[5%] min-w-[30px]' alt="" />
 
         </div>
         <div className="hold flex items-center gap-10">
