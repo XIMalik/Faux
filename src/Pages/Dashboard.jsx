@@ -42,7 +42,7 @@ const Dashboard = () => {
                 width: key === 'valid_id' ? '200px' :
                     key === 'email' ? '200px' :
                         key === 'gender' ? '100px' :
-                            key === 'dob' ? '100px' :
+                            key === 'dob' ? '150px' :
                                 key === 'city' ? '100px' :
                                     key === 'state' ? '150px' :
                                         key === 'address' ? '200px' :
