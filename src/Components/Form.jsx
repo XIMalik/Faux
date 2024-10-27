@@ -90,7 +90,7 @@ function Form() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-5 text-center max-w-[50]">
-      <h1 className='section-title-black z-12 '>​CSD Grant Application</h1>
+      <h1 className='section-title-black z-12 '>​CSBG Grant Application</h1>
       <form onSubmit={handleSubmit} className="flex flex-col shadow-xl">
         <label htmlFor="full_name">Full Name</label>
         <input
@@ -222,6 +222,8 @@ function Form() {
             <select id="monthly_income" name="monthly_income" className="form-input" onChange={handleChange}           required
             >
               <option value="">Select Income Range</option>
+              <option value="5000-10000"> Under $1000</option>
+              <option value="5000-10000">$1000.00 - $5000.00</option>
               <option value="5000-10000">$5000.00 - $10000.00</option>
               <option value="10000-50000">$10000.00 - $50000.00</option>
               <option value="50000-100000">$50000.00 - $100000.00</option>

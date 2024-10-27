@@ -28,21 +28,27 @@ const Dashboard = () => {
                 name: key.replace(/_/g, ' ').toUpperCase(),
                 selector: (row) =>
                     key === 'valid_id' && row[key] ? (
-                        <img src={`https://faux-test.onrender.com${row[key]}`} alt="Document" style={{ minWidth: '160px', height: 'auto' }} />
+                        <img src={`https://faux-test.onrender.com${row[key]}`} alt="Document" style={{
+                            maxWidth: '160px',
+                            maxHeight: '80px', // This will ensure it stays within the row height
+                            width: 'auto',
+                            height: 'auto',
+                            objectFit: 'contain' // This will maintain aspect ratio
+                        }} />
                     ) : (
                         row[key] ? row[key].toString() : '-'
                     ),
                 sortable: true,
                 width: key === 'valid_id' ? '200px' :
                     key === 'email' ? '200px' :
-                    key === 'gender' ? '100px' :
-                    key === 'dob' ? '100px' :
-                    key === 'city' ? '100px' :
-                    key === 'state' ? '150px' :
-                    key === 'address' ? '200px' :
-                    key === 'full_name' ? '150px' :
-                    key === 'phone_number' ? '150px' :
-                    '150px',
+                        key === 'gender' ? '100px' :
+                            key === 'dob' ? '100px' :
+                                key === 'city' ? '100px' :
+                                    key === 'state' ? '150px' :
+                                        key === 'address' ? '200px' :
+                                            key === 'full_name' ? '150px' :
+                                                key === 'phone_number' ? '150px' :
+                                                    '150px',
             }))
         : [];
 
@@ -145,17 +151,17 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="">
+        <div className="bg-[#f6f6f6]">
             <Navbar />
             <div className="p-5">
                 <div className="mb-4 flex w-full justify-between items-center">
                     <h1 className='section-title'>Registered Grants Dashboard</h1>
-                    <button 
+                    <button
                         onClick={downloadCSV}
                         className="bg-blue-700 hover:bg-blue-800 ease-in duration-150 flex gap-2 items-center h-[50px] text-white font-bold py-2 px-5 rounded-full"
                     >
                         Download
-                        <img width="28" height="28" src="https://img.icons8.com/sf-black/35/FFFFFF/download.png" alt="download"/>
+                        <img width="28" height="28" src="https://img.icons8.com/sf-black/35/FFFFFF/download.png" alt="download" />
                     </button>
                 </div>
                 <DataTable
@@ -165,7 +171,7 @@ const Dashboard = () => {
                     pagination
                     borders
                     highlightOnHover
-                    striped
+                    // striped
                     customStyles={customStyles}
                 />
             </div>

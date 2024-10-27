@@ -3,7 +3,7 @@ import logo_mob from '/public/ab-logo-col.png';
 import flag from '/public/flag.png';
 import ham from '/public/hamburger3.png';
 import close from '/public/closedd.png';
-import logo from '/public/logo.svg';
+import logo from '/public/logoo.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +48,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar hidden md:flex justify-between text-black bg-white px-10 py-2 border-b-[1.5px] border-black/10">
-        <img src={logo} className='w-[13%]' alt="" />
+        <img src={logo} className='min-w-[150px] max-w-[13%]' alt="" />
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 text-black">
             <li><a href='#how-it-works'>How it works</a></li>
@@ -60,12 +60,10 @@ const Navbar = () => {
       </div>
 
       {/* Navbar for smaller screens */}
-      <div className="navbar flex md:hidden bg-none">
+      <div className="navbar flex md:hidden bg-none px-10">
         <div className="flex-1">
-          <a className="text-sm flex items-center gap-2 header_title">
-            {/* <img src={logo_mob} alt="Abeenton logo" className='h-[40px]' />
-            <h1 className='header-title'>Abeenton</h1> */}
-          </a>
+          <img src={logo} className='min-w-[150px] max-w-[13%]' alt="" />
+
         </div>
         <div className="flex-none">
           <button
