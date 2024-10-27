@@ -207,14 +207,13 @@ function Form() {
         </div>
 
         <label htmlFor="marital_status">Marital Status</label>
-        <select id="city" name="city" className="form-input mb-3" onChange={handleChange}           required
+        <select id="marital_status" name="marital_status" className="form-input mb-3" onChange={handleChange}           required
         >
           <option value="">Select</option>
-          <option value="Seattle">Single</option>
-          <option value="Spokane">Married</option>
-          <option value="Tacoma">Divorced</option>
-          <option value="Vancouver">Prefer not to say</option>
-          {/* Add more cities as needed */}
+          <option value="SIngle">Single</option>
+          <option value="Married">Married</option>
+          <option value="Divorced">Divorced</option>
+          <option value="Prefer not to say">Prefer not to say</option>
         </select>
 
         <div className="flex gap-2 mb-3">

@@ -47,7 +47,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="navbar hidden shadow-xl md:flex justify-between text-black bg-white px-10 py-2 border-b-[1.5px] border-black/10">
+      <div className="navbar hidden md:flex justify-between text-black bg-white px-10 py-2 border-b-[1.5px] border-black/10">
         <img src={logo} className='w-[13%]' alt="" />
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 text-black">
