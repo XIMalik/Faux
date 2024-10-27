@@ -22,6 +22,17 @@ function Form() {
     additional_message: '',
   });
 
+
+  const states = [
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
+    "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+    "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+    "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+    "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+    "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+    "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+  ];
+
   const nav = useNavigate()
 
   const [status, setStatus] = useState({ submitting: false, success: false, error: '' });
@@ -58,193 +69,234 @@ function Form() {
     }
   };
 
-  if (status.success) {
+  if (status.success) 
+  {
     return (
-      <div className="section-paragraph-light text-center">
+      <div className="section-paragraph-black text-[#0C2043] flex items-center absolute top-[250px] flex-col text-center max-w-[60vw]">
 
-        <h1>You have successfully registered for the grant!</h1>
-        <p>Please be on standby and be expectant of an email in the coming days. Instructions will be relayed concerning steps of continuation.</p>
+        <lord-icon
+          src="https://cdn.lordicon.com/lomfljuq.json"
+          trigger="loop"
+          delay="4000"
+          colors="primary:#22c3e6"
+          style={{ width: '100px', height: '100px' }}>
+        </lord-icon>        
+        <h1 className='mt-5'>You have successfully registered for the grant!</h1>
+        <p>Kindly check your inbox in 2-5 business days for a confirmation email. </p>
         <button className='underline mt-10' onClick={() => nav('/')}>Go home</button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2 shadow-xl">
-      <label htmlFor="full_name">Full Name</label>
-      <input
-        id="full_name"
-        type="text"
-        name="full_name"
-        className="form-input"
-        placeholder="John Doe"
-        onChange={handleChange}
-      />
+    <div className="flex flex-col items-center justify-center gap-5 text-center max-w-[50]">
+      <h1 className='section-title-black z-12 '>​CSD Grant Application</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col shadow-xl">
+        <label htmlFor="full_name">Full Name</label>
+        <input
+          id="full_name"
+          type="text"
+          name="full_name"
+          className="form-input"
+          placeholder="John Doe"
+          onChange={handleChange}
+          required
+        />
 
-      <div className="flex gap-2">
-        <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="gender">Gender</label>
-          <select id="gender" name="gender" className="form-input" onChange={handleChange}>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="female">Other</option>
-          </select>
+        <div className="flex gap-2 my-3">
+          <div className="flex w-[50%] flex-col items-start">
+            <label htmlFor="gender">Gender</label>
+            <select id="gender" name="gender" className="form-input" onChange={handleChange}           required
+            >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="female">Other</option>
+            </select>
+          </div>
+
+          <div className="flex w-[50%] flex-col items-start">
+            <label htmlFor="dob">Date of birth</label>
+            <input
+              id="dob"
+              type="date"
+              name="dob"
+              className="form-input"
+              onChange={handleChange}
+              required
+              max={new Date().toISOString().split('T')[0]} // Optional: prevents future dates
+            />
+          </div>
         </div>
 
-        <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="dob">Date of birth</label>
-          <input
-            id="dob"
-            type="date"
-            name="dob"
-            className="form-input"
-            onChange={handleChange}
-            max={new Date().toISOString().split('T')[0]} // Optional: prevents future dates
-          />
-        </div>
-      </div>
+        <label htmlFor="phone_number">Phone Number</label>
+        <input
+          id="phone_number"
+          type="tel"
+          name="phone_number"
+          placeholder="+1-234-567-8901"
+          className="form-input mb-3"
+          onChange={handleChange}
+          required
 
-      <label htmlFor="phone_number">Phone Number</label>
-      <input
-        id="phone_number"
-        type="tel"
-        name="phone_number"
-        placeholder="+1-234-567-8901"
-        className="form-input"
-        onChange={handleChange}
-      />
+        />
 
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        className="form-input"
-        placeholder="grace.jennings@gmail.com"
-        onChange={handleChange}
-      />
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          className="form-input mb-3"
+          placeholder="john.doe@gmail.com"
+          onChange={handleChange}
+          required
 
-      <label htmlFor="address">Home address</label>
-      <input
-        id="address"
-        type="text"
-        name="address"
-        className="form-input"
-        placeholder="15907 Wilmington Park Lane"
-        onChange={handleChange}
-      />
+        />
 
-      <div className="flex gap-2">
-        <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="city">City</label>
-          <select id="city" name="city" className="form-input" onChange={handleChange}>
-            <option value="">Select City</option>
-            <option value="Seattle">Seattle</option>
-            <option value="Spokane">Spokane</option>
-            <option value="Tacoma">Tacoma</option>
-            <option value="Vancouver">Vancouver</option>
-            <option value="Bellevue">Bellevue</option>
-            <option value="Kent">Kent</option>
-            <option value="Everett">Everett</option>
-            <option value="Renton">Renton</option>
-            <option value="Yakima">Yakima</option>
-            <option value="Federal Way">Federal Way</option>
-            <option value="Spokane Valley">Spokane Valley</option>
-            {/* Add more cities as needed */}
-          </select>
-        </div>
+        <label htmlFor="address">Home address</label>
+        <input
+          id="address"
+          type="text"
+          name="address"
+          className="form-input mb-3"
+          placeholder="15907 Wilmington Park Lane"
+          onChange={handleChange}
+          required
 
-        <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="state">State</label>
-          <input
-            id="state"
-            type="text"
-            name="state"
-            className="form-input"
-            placeholder="Washington"
-            readOnly
-          />
-        </div>
-      </div>
+        />
 
-      <label htmlFor="marital_status">Marital Status</label>
-      <select id="city" name="city" className="form-input" onChange={handleChange}>
-        <option value="">Select</option>
-        <option value="Seattle">Single</option>
-        <option value="Spokane">Married</option>
-        <option value="Tacoma">Divorced</option>
-        <option value="Vancouver">Prefer not to say</option>
-        {/* Add more cities as needed */}
-      </select>
+        <div className="flex gap-2 mb-3">
+          <div className="flex w-[50%] flex-col items-start">
+            <label htmlFor="city">City</label>
+            <select id="city" name="city" className="form-input" onChange={handleChange}           required
+            >
+              <option value="">Select City</option>
+              <option value="Seattle">Seattle</option>
+              <option value="Spokane">Spokane</option>
+              <option value="Tacoma">Tacoma</option>
+              <option value="Vancouver">Vancouver</option>
+              <option value="Bellevue">Bellevue</option>
+              <option value="Kent">Kent</option>
+              <option value="Everett">Everett</option>
+              <option value="Renton">Renton</option>
+              <option value="Yakima">Yakima</option>
+              <option value="Federal Way">Federal Way</option>
+              <option value="Spokane Valley">Spokane Valley</option>
+              {/* Add more cities as needed */}
+            </select>
+          </div>
 
-      <div className="flex gap-2">
-        <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="monthly_income">Monthly Income</label>
-          <select id="monthly_income" name="monthly_income" className="form-input" onChange={handleChange}>
-            <option value="">Select Income Range</option>
-            <option value="5000-10000">$5000.00 - $10000.00</option>
-            <option value="10000-50000">$10000.00 - $50000.00</option>
-            <option value="50000-100000">$50000.00 - $100000.00</option>
-            <option value="100000-500000">$100000.00 - $500000.00</option>
-          </select>
+          <div className="flex w-[50%] flex-col items-start mb-3">
+            <label htmlFor="state">State</label>
+            <select
+              id="state"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              className="form-input"
+              required
+            >
+              <option value="">Select State</option>
+              {states.map((state) => (
+                <option key={state} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        <div className="flex w-[50%] flex-col items-start">
-          <label htmlFor="i_have_a_car">I own a car (T/F)</label>
-          <input
-            id="i_have_a_car"
-            type="text"
-            name="i_have_a_car"
-            placeholder="True"
-            className="form-input"
-            onChange={handleChange}
-          />
+        <label htmlFor="marital_status">Marital Status</label>
+        <select id="city" name="city" className="form-input mb-3" onChange={handleChange}           required
+        >
+          <option value="">Select</option>
+          <option value="Seattle">Single</option>
+          <option value="Spokane">Married</option>
+          <option value="Tacoma">Divorced</option>
+          <option value="Vancouver">Prefer not to say</option>
+          {/* Add more cities as needed */}
+        </select>
+
+        <div className="flex gap-2 mb-3">
+          <div className="flex w-[50%] flex-col items-start">
+            <label htmlFor="monthly_income">Monthly Income</label>
+            <select id="monthly_income" name="monthly_income" className="form-input" onChange={handleChange}           required
+            >
+              <option value="">Select Income Range</option>
+              <option value="5000-10000">$5000.00 - $10000.00</option>
+              <option value="10000-50000">$10000.00 - $50000.00</option>
+              <option value="50000-100000">$50000.00 - $100000.00</option>
+              <option value="100000-500000">$100000.00 - $500000.00</option>
+            </select>
+          </div>
+
+          <div className="flex w-[50%] flex-col items-start">
+            <label htmlFor="i_have_a_car">I own a car (T/F)</label>
+            <input
+              id="i_have_a_car"
+              type="text"
+              name="i_have_a_car"
+              placeholder="True"
+              className="form-input"
+              onChange={handleChange}
+              required
+
+            />
+          </div>
         </div>
-      </div>
 
-      <label htmlFor="occupation">Occupation</label>
-      <input
-        id="occupation"
-        type="text"
-        name="occupation"
-        className="form-input"
-        placeholder="Software Developer"
-        onChange={handleChange}
-      />
+        <label htmlFor="occupation">Occupation</label>
+        <input
+          id="occupation"
+          type="text"
+          name="occupation"
+          className="form-input mb-3"
+          placeholder="Software Developer"
+          onChange={handleChange}
+          required
 
-      <label htmlFor="rent_or_own">Do you own a house or rent?</label>
-      <input
-        id="rent_or_own"
-        type="text"
-        name="rent_or_own"
-        className="form-input"
-        placeholder="Own"
-        onChange={handleChange}
-      />
+        />
 
-      <label htmlFor="application_purpose">Application purpose</label>
-      <input
-        id="application_purpose"
-        type="text"
-        name="application_purpose"
-        className="form-input"
-        onChange={handleChange}
-      />
+        <label htmlFor="rent_or_own">Do you own a house or rent?</label>
+        <input
+          id="rent_or_own"
+          type="text"
+          name="rent_or_own"
+          className="form-input mb-3"
+          placeholder="Own"
+          onChange={handleChange}
+          required
 
-      <label htmlFor="valid_id">Valid ID (Drivers License, ID Card)</label>
-      <input
-        id="valid_id"
-        type="file"
-        name="valid_id"
-        className="form-input rounded-full"
-        onChange={handleFileChange}
-      />
+        />
 
-      <button type="submit" className='bg-[#F58721] hover:bg-[#F58728]' disabled={status.submitting}>
-        Submit
-      </button>
-    </form>
+        <label htmlFor="application_purpose">Application purpose</label>
+        <textarea
+          id="application_purpose"
+          name="application_purpose"
+          className="form-input mb-3"
+          placeholder='Maximum of 1000 words'
+          onChange={handleChange}
+          required
+
+        />
+
+
+        <label htmlFor="valid_id">Valid ID (Drivers License, ID Card)</label>
+        <input
+          id="valid_id"
+          type="file"
+          name="valid_id"
+          className="form-input rounded-full mb-3"
+          onChange={handleFileChange}
+          required
+
+        />
+
+        <button type="submit" className='bg-[#F58721] hover:bg-[#F58728]' disabled={status.submitting}>
+          Submit
+        </button>
+      </form>
+    </div>
 
   );
 }

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import logo from '/public/ab-logo-wh.png';
 import logo_mob from '/public/ab-logo-col.png';
 import flag from '/public/flag.png';
 import ham from '/public/hamburger3.png';
 import close from '/public/closedd.png';
+import logo from '/public/logo.svg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,11 +47,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="navbar hidden md:flex justify-between bg-none text-black bg-white px-10 py-2 border-b-[0.2px] border-black/10">
-        <a className="text-sm flex items-center gap-2 header_title bg-black">
-          {/* <img src={logo} alt="Abeenton logo" className='h-[55px]' /> */}
-          {/* <h1 className='header-title'>Abeenton</h1> */}
-        </a>
+      <div className="navbar hidden shadow-xl md:flex justify-between text-black bg-white px-10 py-2 border-b-[1.5px] border-black/10">
+        <img src={logo} className='w-[13%]' alt="" />
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1 text-black">
             <li><a href='#how-it-works'>How it works</a></li>

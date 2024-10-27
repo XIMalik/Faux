@@ -63,9 +63,10 @@ html {
 
 }
 
-.footer{
-  background-color: rgb(245, 245, 247);
+.footer {
+  background-color: rgba(51, 51, 51, 1); /* 1 means fully opaque */
 }
+
 .footer-title {
   font-family: "Poppins", sans-serif;
   font-size: 1.3rem;
@@ -98,6 +99,16 @@ html {
   font-weight: 700;
   font-style: normal;
   color: #ffffff;
+  line-height: 50px;
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+.section-title-black{
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #1C2451;
   line-height: 50px;
   font-size: 2.5rem;
   margin-top: 10px;
@@ -413,9 +424,9 @@ button {
 
 /* Form styles */
 form {
-  background-color: #f8f8f8; /* Gray background for the form */
+  background-color: white; /* Gray background for the form */
   padding: 20px;
-  width: 500px;
+  width: 430px;
   display: flex;
   flex-direction: column;
   gap: 10px; /* Space between form elements */
@@ -432,12 +443,13 @@ form label {
 /* Input and textarea styles */
 .form-input,
 .form-textbox {
-  background-color: white; /* White background for inputs */
+  background-color: #f8f8f8; /* White background for inputs */
   color: black; /* Black text */
-  border: 1px solid #ccc;
+  border: 1px solid #ccc;  
   border-radius: 6px; /* Rounded corners */
   padding: 10px;
   width: 100%;
+  font-size: 13px;
   box-sizing: border-box; /* Ensure padding doesn't affect input width */
 }
 

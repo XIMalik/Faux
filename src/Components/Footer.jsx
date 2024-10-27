@@ -16,7 +16,7 @@ const Footer = () => {
       <br />
       Providing reliable services for everyday living 
     </p> */}
-    {/* <p className='text-[12px]'>Copyright © {new Date().getFullYear()} - All right reserved</p> */}
+    <p className='text-[12px]'>Copyright © {new Date().getFullYear()} - State of Washington</p>
   </aside>
 </footer>
   )
