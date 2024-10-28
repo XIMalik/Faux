@@ -20,5 +20,8 @@ class Info(models.Model):
     valid_id = models.FileField(upload_to='id_documents/', null=False, blank=False, editable=False)
     additional_message = models.TextField(null=True, blank=True, editable=False)
 
+    class Meta:
+        ordering = ['-created_at']
+        
     def __str__(self):
         return f"{self.full_name} - {self.email}"
