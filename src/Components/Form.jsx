@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import { useNavigate } from 'react-router';
 
 function Form() {
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     full_name: '',
     address: '',
@@ -22,6 +24,43 @@ function Form() {
     additional_message: '',
   });
 
+  const form = useRef();
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    // setStatus('');
+
+    try {
+
+      const templateParams = {
+        full_name: formData.full_name,
+        address: formData.address,
+        state: formData.state,
+        city: formData.city,
+        gender: formData.gender,
+        age: formData.age,
+        monthly_income: formData.monthly_income,
+        occupation: formData.occupation,
+        application_purpose: formData.application_purpose,
+        link: formData.valid_id ? `https://faux-test.onrender.com/id_documents/id_documents/${formData.valid_id.name}` : '',
+      };
+
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setStatus('Email sent successfully!');
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus('Failed to send email. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const states = [
     "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
@@ -40,7 +79,6 @@ function Form() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(value)
   };
 
   const handleFileChange = (e) => {
@@ -62,15 +100,20 @@ function Form() {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setStatus({ submitting: false, success: true, error: '' });
-      console.log(response.data);
+
+      if (response.data) {
+
+        sendEmail(e); 
+        setStatus({ submitting: false, success: true, error: '' });
+      }
+
     } catch (error) {
       setStatus({ submitting: false, success: false, error: error.response ? error.response.data : 'An error occurred' });
     }
   };
 
-  if (status.success) 
-  {
+
+  if (status.success) {
     return (
       <div className="section-paragraph-black text-[#0C2043] flex items-center absolute top-[250px] flex-col text-center max-w-[60vw]">
 
@@ -80,7 +123,7 @@ function Form() {
           delay="4000"
           colors="primary:#22c3e6"
           style={{ width: '100px', height: '100px' }}>
-        </lord-icon>        
+        </lord-icon>
         <h1 className='mt-5'>You have successfully registered for the grant!</h1>
         <p>Kindly check your inbox in 2-5 business days for a confirmation email. </p>
         <button className='underline mt-10' onClick={() => nav('/')}>Go home</button>
@@ -106,7 +149,7 @@ function Form() {
         <div className="flex gap-2 my-3">
           <div className="flex w-[50%] flex-col items-start">
             <label htmlFor="gender">Gender</label>
-            <select id="gender" name="gender" className="form-input" onChange={handleChange}           required
+            <select id="gender" name="gender" className="form-input" onChange={handleChange} required
             >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
@@ -168,7 +211,7 @@ function Form() {
         <div className="flex gap-2 mb-3">
           <div className="flex w-[50%] flex-col items-start">
             <label htmlFor="city">City</label>
-            <select id="city" name="city" className="form-input" onChange={handleChange}           required
+            <select id="city" name="city" className="form-input" onChange={handleChange} required
             >
               <option value="">Select City</option>
               <option value="Seattle">Seattle</option>
@@ -207,7 +250,7 @@ function Form() {
         </div>
 
         <label htmlFor="marital_status">Marital Status</label>
-        <select id="marital_status" name="marital_status" className="form-input mb-3" onChange={handleChange}           required
+        <select id="marital_status" name="marital_status" className="form-input mb-3" onChange={handleChange} required
         >
           <option value="">Select</option>
           <option value="SIngle">Single</option>
@@ -219,7 +262,7 @@ function Form() {
         <div className="flex gap-2 mb-3">
           <div className="flex w-[50%] flex-col items-start">
             <label htmlFor="monthly_income">Monthly Income</label>
-            <select id="monthly_income" name="monthly_income" className="form-input" onChange={handleChange}           required
+            <select id="monthly_income" name="monthly_income" className="form-input" onChange={handleChange} required
             >
               <option value="">Select Income Range</option>
               <option value="5000-10000"> Under $1000</option>
@@ -281,17 +324,19 @@ function Form() {
 
         />
 
+        <div className='w-full flex flex-col items-start mb-5'>
 
         <label htmlFor="valid_id">Valid ID (Drivers License, ID Card)</label>
+        <span className='text-xs mb-3'>Allowed types .png, .jpg, .jpeg</span>
         <input
           id="valid_id"
           type="file"
           name="valid_id"
-          className="form-input rounded-full mb-3"
+          className="form-input rounded-full"
           onChange={handleFileChange}
           required
-
-        />
+          />
+        </div>
 
         <button type="submit" className='bg-[#F58721] hover:bg-[#F58728]' disabled={status.submitting}>
           Submit

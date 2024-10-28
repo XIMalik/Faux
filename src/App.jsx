@@ -9,7 +9,6 @@ function App() {
 
   // Array.from(document.querySelectorAll("*")).forEach((el) => {
   //   if (el.scrollWidth > el.clientWidth) {
-  //     console.log("Overflowing element:", el);
   //     el.style.border = "2px solid yellow";  // Optional: adds a border for visual identification
   //   }
   // });

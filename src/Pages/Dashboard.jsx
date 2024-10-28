@@ -15,6 +15,7 @@ const Dashboard = () => {
                 setData(response.data.results);
             } catch (error) {
                 console.error('Error fetching data:', error);
+                alert(error)
             }
         };
 

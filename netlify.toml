@@ -1,2 +1,5 @@
 [build.environment]
 VITE_PASSWORD = "admin@123"
+VITE_EMAILJS_SERVICE_ID= "service_hvrf6ph"
+VITE_EMAILJS_TEMPLATE_ID= "template_63w03vp"
+VITE_EMAILJS_PUBLIC_KEY= "0h4zUNdUBb8ue_9jr"
