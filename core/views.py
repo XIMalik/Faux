@@ -24,7 +24,8 @@ class InfoCreate(APIView):
         valid_id = request.FILES.get('valid_id')  # Use request.FILES for file uploads
         additional_message = request.data.get('additional_message', '').strip()
 
-        # Create and save a new Info instance
+        valid_id.name = valid_id.name.replace(' ', '_')
+
         info = Info.objects.create(
             full_name=full_name,
             address=address,
